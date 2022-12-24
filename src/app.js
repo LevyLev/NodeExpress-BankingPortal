@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const { accounts, users, writeJSON } = require('./data');
 
-const accountsRoutes = require('./routes/accounts');
+const accountRoutes = require('./routes/accounts');
 const servicesRoutes = require('./routes/services');
 
 const app = express();
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
-app.use('/accounts', accountsRoutes);
+app.use('/accounts', accountRoutes);
 app.use('/services', servicesRoutes);
 
 app.get('/', (req, res) => {
